@@ -1,4 +1,4 @@
-package uz.devtillo.espressouitest
+package uz.devtillo.espressouitest.activityTest
 
 import org.junit.runner.RunWith
 import org.junit.runners.Suite

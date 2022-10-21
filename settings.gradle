@@ -10,6 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://www.jitpack.io' }
     }
 }
 rootProject.name = "Espresso UI TEST"

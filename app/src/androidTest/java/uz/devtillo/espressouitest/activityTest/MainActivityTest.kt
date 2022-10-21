@@ -1,20 +1,17 @@
-package uz.devtillo.espressouitest
+package uz.devtillo.espressouitest.activityTest
 
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.longClick
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import androidx.test.runner.AndroidJUnitRunner
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import uz.devtillo.espressouitest.R
 
 @RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTest {
