@@ -7,52 +7,32 @@ import android.view.View
 import android.view.ViewGroup
 import uz.devtillo.espressouitest.R
 import uz.devtillo.espressouitest.databinding.FragmentSecondBinding
+import uz.devtillo.espressouitest.model.Movie
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SecondFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SecondFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var param1: Movie? = null
     private lateinit var binding: FragmentSecondBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSecondBinding.inflate(layoutInflater, container, false)
+        arguments?.let {
+            param1 = it?.getSerializable("url") as Movie
+        }
 
-
+        binding.actors.text = param1?.star_actors.toString()
+        binding.movie.text = param1?.title
+        binding.descriptions.text = param1?.description
 
         return binding.root
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SecondFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             SecondFragment().apply {

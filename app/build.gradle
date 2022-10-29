@@ -45,6 +45,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
     // androidx.test
     def androidx_test = "1.1.0"
     androidTestImplementation "androidx.test:runner:$androidx_test"
@@ -54,13 +55,16 @@ dependencies {
     def fragment_version = "1.5.3"
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
 
-    androidTestImplementation "androidx.navigation:navigation-testing:2.5.2"
-    implementation "androidx.navigation:navigation-fragment:2.5.2"
-    implementation "androidx.navigation:navigation-runtime:2.5.2"
+    // Espresso
+    def androidx_test_espresso = "3.1.0"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$androidx_test_espresso"
+    implementation "androidx.test.espresso:espresso-idling-resource:$androidx_test_espresso"
 
     //navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.0'
+    androidTestImplementation "androidx.navigation:navigation-testing:2.5.2"
+    implementation "androidx.navigation:navigation-runtime:2.5.2"
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
 
     //room rx java
     implementation 'androidx.room:room-rxjava2:2.4.3'
@@ -87,6 +91,4 @@ dependencies {
     //glide and SpinKit
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
-
 }

@@ -31,7 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:text="ThreeFrgament"
+        android:text="||ThreeFrgament||"
+        android:linksClickable="true"
+        android:autoLink="none"
         android:textColor="@color/white" />
 
 </LinearLayout>

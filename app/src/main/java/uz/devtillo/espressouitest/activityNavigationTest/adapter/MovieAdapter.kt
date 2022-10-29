@@ -4,15 +4,17 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import uz.devtillo.espressouitest.R
 import uz.devtillo.espressouitest.databinding.ItemMovieBinding
 import uz.devtillo.espressouitest.model.Movie
 
 class MovieAdapter(private var context: Context, private var listener: onItemClicked) :
-    ListAdapter<Movie, MovieAdapter.Vh>(MyDiffUtil()) {
+    ListAdapter<Movie, MovieAdapter.VhMovie>(MyDiffUtil()) {
 
     class MyDiffUtil :
         DiffUtil.ItemCallback<Movie>() {
@@ -32,12 +34,12 @@ class MovieAdapter(private var context: Context, private var listener: onItemCli
         }
     }
 
-    inner class Vh(var itemSubjectBinding: ItemMovieBinding) :
+    inner class VhMovie(var itemSubjectBinding: ItemMovieBinding) :
         RecyclerView.ViewHolder(itemSubjectBinding.root) {
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Vh {
-        return Vh(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VhMovie {
+        return VhMovie(
             ItemMovieBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -50,7 +52,7 @@ class MovieAdapter(private var context: Context, private var listener: onItemCli
         fun onClicked(url: Movie, position: Int)
     }
 
-    override fun onBindViewHolder(holder: Vh, position: Int) {
+    override fun onBindViewHolder(holder: VhMovie, position: Int) {
         val item = getItem(position)
         holder.itemSubjectBinding.apply {
             try {
@@ -65,13 +67,16 @@ class MovieAdapter(private var context: Context, private var listener: onItemCli
                     }
                 }
 
-                Glide.with(context)
-                    .load(item.image)
+                Glide.with(context).load(item.image).placeholder(R.drawable.ic_launcher_background)
                     .into(movieImage)
 
                 movieImage.setOnClickListener {
                     listener.onClicked(item, position)
                 }
+                movieStarActors.setOnClickListener {
+                    listener.onClicked(item, position)
+                }
+
             } catch (e: Exception) {
                 e.printStackTrace()
             }

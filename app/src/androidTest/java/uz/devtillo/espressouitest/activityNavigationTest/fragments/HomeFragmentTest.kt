@@ -69,6 +69,7 @@ class HomeFragmentTest {
         onView(withId(R.id.home_UI))
             .check(matches(isDisplayed()))
     }
+
     @Test
     fun btnClickable() {
         //you can use there are click() its time I used longClick()

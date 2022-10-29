@@ -7,6 +7,7 @@ import uz.devtillo.espressouitest.databinding.ActivityTestMainBinding
 
 class Test_Main : AppCompatActivity() {
 
+//    RV navigation not worked
     private lateinit var binding: ActivityTestMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
